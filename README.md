@@ -42,18 +42,18 @@ Task Filter is a React-based task management application that allows users to or
 ## Installation
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/xanicas/task-filter.git
-   cd task-filter
-   ```
+```bash
+git clone https://github.com/xanicas/task-filter.git
+cd task-filter
+```
 2. Install dependencies:
-  ```bash
-  npm install
-  ```
+```bash
+npm install
+```
 3. Start the development server:
-  ```bash
-  npm run dev
-  ```
+```bash
+npm run dev
+```
 4. Open the app in your browser 
 
 ---
