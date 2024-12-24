@@ -3,107 +3,240 @@
 .task-manager {
     display: flex;
     height: 100vh;
-}
 
-/* Sidebar Styling */
-.sidebar {
-    width: 250px;
-    background-color: #f4f4f4;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    .sidebar {
+        width: 250px;
+        background-color: #f4f4f4;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 
-    h2 {
-        margin-bottom: 20px;
-        font-size: 18px;
-    }
+        h2 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
 
-    ul {
-        list-style: none;
-        padding: 0;
+        ul {
+            list-style: none;
+            padding: 0;
 
-        li {
-            padding: 10px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.2s;
+            li {
+                padding: 10px;
+                margin-bottom: 10px;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.2s;
 
-            &:hover {
-                background-color: #ddd;
+                &:hover {
+                    background-color: #ddd;
+                }
+
+                &.active {
+                    background-color: #007bff;
+                    color: white;
+                }
             }
-
-            &.active {
-                background-color: #007bff;
-                color: white;
-            }
-        }
-    }
-}
-
-/* Main Content Styling */
-.main-content {
-    flex: 1;
-    padding: 20px;
-
-    .add-task {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 20px;
-
-        input {
-            padding: 8px;
-            font-size: 14px;
-            width: 200px;
-        }
-
-        button {
-            padding: 8px 12px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 14px;
         }
     }
 
-    .task-list {
-        list-style: none;
-        padding: 0;
+    .main-content {
+        flex: 1;
+        padding: 20px;
 
-        .task-item {
-            margin-bottom: 10px;
+        .heading {
+            margin-bottom: 16px;
+        }
+
+        .task-actions {
             display: flex;
             justify-content: space-between;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 20px;
+        
+            .add-task {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+        
+                input {
+                    padding: 8px;
+                    font-size: 14px;
+                    border: 1px solid variables.$grey-100;
+                    border-radius: 4px;
+                    flex: 1;
+                    width: 350px;
+                }
+        
+                button {
+                    padding: 8px 12px;
+                    background-color: #007bff;
+                    color: white;
+                    border-radius: 4px;
+                    border: none;
+                    cursor: pointer;
+                    font-size: 14px;
+        
+                    &:hover {
+                        background-color: #0056b3;
+                    }
+                }
+            }
+        
+            .search-bar {
+                .search-input-wrapper {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    max-width: 400px;
+                    width: 100%;
+        
+                    input {
+                        width: 100%;
+                        padding: 8px 12px;
+                        padding-right: 40px;
+                        font-size: 14px;
+                        border: 1px solid variables.$grey-100;
+                        border-radius: 4px;
+                        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                        outline: none;
+        
+                        &:focus {
+                            border-color: #007bff;
+                            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+                        }
+                    }
+        
+                    .search-icon {
+                        position: absolute;
+                        right: 10px;
+                        font-size: 16px;
+                        color: #888;
+                    }
+                }
+            }
+        }        
 
-            &.todo {
-                border-left: 5px solid #007bff;
+        .task-table {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+            th,
+            td {
+                padding: 12px 16px;
+                text-align: left;
+                word-wrap: break-word;
+                vertical-align: middle;
             }
 
-            &.progress {
-                border-left: 5px solid #ffc107;
+            th {
+                background-color: #f4f4f4;
+                font-weight: bold;
+                text-transform: uppercase;
+                font-size: 0.9em;
             }
 
-            &.done {
-                border-left: 5px solid #28a745;
+            td {
+                border-bottom: 1px solid #eee;
+            }
+
+            tr:last-child td {
+                border-bottom: none;
             }
         }
 
-        .status {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 0.85em;
+            font-weight: bold;
+            text-align: center;
 
-            select {
-                padding: 5px;
-                font-size: 14px;
+            &.status-todo {
+                background-color: #ff4d4d;
+            }
+    
+            &.status-progress {
+                background-color: #4d94ff;
+            }
+    
+            &.status-done {
+                background-color: #4caf50;
+            }
+        }
+
+        .action-menu {
+            position: relative;
+
+            .action-icon {
+                cursor: pointer;
+                font-size: 1.2em;
+                color: #888;
+            }
+
+            .dropdown-menu {
+                position: absolute;
+                top: 30px;
+                background: #fff;
                 border: 1px solid #ccc;
                 border-radius: 4px;
-                background-color: #fff;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+                min-width: 120px;
+
+                button {
+                    display: block;
+                    padding: 8px 12px;
+                    background: none;
+                    border: none;
+                    width: 100%;
+                    text-align: left;
+                    cursor: pointer;
+                    font-size: 0.9em;
+                    color: #333;
+
+                    &:hover {
+                        background-color: #f4f4f4;
+                    }
+                }
+            }
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+
+            button {
+                background-color: #007bff;
+                color: white;
+                border: none;
+                padding: 8px 12px;
+                border-radius: 4px;
+                margin: 0 5px;
                 cursor: pointer;
+                font-size: 1em;
+
+                &:hover {
+                    background-color: #0056b3;
+                }
+
+                &[disabled] {
+                    background-color: #ddd;
+                    cursor: not-allowed;
+                }
+            }
+
+            span {
+                font-size: 1em;
+                margin: 0 10px;
             }
         }
     }
