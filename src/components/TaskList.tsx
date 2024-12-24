@@ -163,7 +163,7 @@ const TaskList: React.FC = () => {
 												<div className="dropdown-menu">
 													<button
 														onClick={(e) => {
-															e.stopPropagation(); // Prevent closing the dropdown
+															e.stopPropagation();
 															handleStatusChange(task.id, "TODO");
 														}}
 													>

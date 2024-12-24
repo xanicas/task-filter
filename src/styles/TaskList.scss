@@ -40,23 +40,23 @@
 
     .main-content {
         flex: 1;
-        padding: 20px;
+        padding: variables.$spacing-20;
 
         .heading {
-            margin-bottom: 16px;
+            margin-bottom: variables.$spacing-16;
         }
 
         .task-actions {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            gap: 20px;
+            margin-bottom: variables.$spacing-20;
+            gap: variables.$spacing-20;
         
             .add-task {
                 display: flex;
                 align-items: center;
-                gap: 10px;
+                gap: variables.$spacing-10;
         
                 input {
                     padding: 8px;
@@ -68,7 +68,7 @@
                 }
         
                 button {
-                    padding: 8px 12px;
+                    padding: variables.$spacing-8 variables.$spacing-12;
                     background-color: #007bff;
                     color: white;
                     border-radius: 4px;
@@ -92,8 +92,8 @@
         
                     input {
                         width: 100%;
-                        padding: 8px 12px;
-                        padding-right: 40px;
+                        padding: variables.$spacing-8 variables.$spacing-12;
+                        padding-right: variables.$spacing-40;
                         font-size: 14px;
                         border: 1px solid variables.$grey-100;
                         border-radius: 4px;
@@ -120,14 +120,14 @@
             width: 100%;
             table-layout: fixed;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-top: variables.$spacing-20;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
             th,
             td {
-                padding: 12px 16px;
+                padding: variables.$spacing-12 variables.$spacing-16;
                 text-align: left;
                 word-wrap: break-word;
                 vertical-align: middle;
@@ -151,7 +151,7 @@
 
         .status-badge {
             display: inline-block;
-            padding: 4px 8px;
+            padding: variables.$spacing-4 variables.$spacing-8;
             border-radius: 12px;
             color: #fff;
             font-size: 0.85em;
@@ -184,7 +184,7 @@
                 position: absolute;
                 top: 30px;
                 background: #fff;
-                border: 1px solid #ccc;
+                border: 1px solid variables.$grey-100;
                 border-radius: 4px;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 z-index: 1000;
@@ -192,7 +192,7 @@
 
                 button {
                     display: block;
-                    padding: 8px 12px;
+                    padding: variables.$spacing-8 variables.$spacing-12;
                     background: none;
                     border: none;
                     width: 100%;
@@ -212,20 +212,20 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 20px;
+            margin-top: variables.$spacing-20;
 
             button {
-                background-color: #007bff;
+                background-color: variables.$blue-100;
                 color: white;
                 border: none;
-                padding: 8px 12px;
+                padding: variables.$spacing-8 variables.$spacing-12;
                 border-radius: 4px;
                 margin: 0 5px;
                 cursor: pointer;
                 font-size: 1em;
 
                 &:hover {
-                    background-color: #0056b3;
+                    background-color: variables.$blue-200;
                 }
 
                 &[disabled] {
